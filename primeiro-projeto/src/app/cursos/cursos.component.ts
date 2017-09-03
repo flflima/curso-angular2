@@ -1,3 +1,4 @@
+import { CursosService } from './cursos.service'
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,10 +10,14 @@ export class CursosComponent implements OnInit {
 
   nomePortal: string;  
 
-  cursos: string[] = ['Java', 'Angular'];
+  cursos: string[];
 
-  constructor() {
+  constructor(private cursosService: CursosService) {
     this.nomePortal = 'http://localhost:4200';
+
+    // var servico = new CursosService();
+    // usa injeção de dependência
+    this.cursos = this.cursosService.getCursos();
   }
 
   ngOnInit() {
