@@ -1,5 +1,5 @@
-<section class="property-binding">
-  <!-- <article>
+<!-- <section class="property-binding">
+  <article>
     <h3>Interpolation / Interpolação</h3>
     <p>String renderizada com Interpolação {{ url }}</p>
     <p>O resultado de 1 + 1 é: {{ 1 + 1 }}</p>
@@ -11,9 +11,9 @@
     <img src="{{ urlImagem }}">
     <img [src]="urlImagem">
     <img bind-src="urlImagem">
-  </article> -->
+  </article>
   
-  <!-- <article>
+  <article>
     <h3>Class e Style Binding</h3>
     <div>
       Adicione uma classe
@@ -52,7 +52,7 @@
         Esse texto aparece somente em caso de erro
       </div>
     </div>
-  </article> -->
+  </article>
 
   <article>
       <h3>Event binding</h3>
@@ -79,5 +79,36 @@
           [class.highlight]="isMouseOver">
           Passe o mouse.
         </span>
+  </article>
+</section> -->
+
+<section class="two-way-binding">
+  <article>
+    <h3>Two-way data binding</h3>
+
+    <div>
+      <input type="text" 
+        [value]="nome" 
+        (input)="nome = $event.target.value"
+      />
+
+      <input type="text" 
+        [ngModel]="nome" 
+        (ngModelChange)="nome = $event"
+      />
+
+      <input type="text" [(ngModel)]="nome" />
+
+      <input type="text" bindon-ngModel="nome" />
+
+      <p>Você digitou: {{ nome }}</p>
+
+      <div>
+        <p>Meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos de idade.</p>
+        
+        <input type="text" [(ngModel)]="pessoa.nome" />
+        <input type="text" [(ngModel)]="pessoa.idade" />
+      </div>
+    </div>
   </article>
 </section>
